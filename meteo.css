@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#input {
+  margin: 20px;
+}
+
+#submit {
+  height: 30px;
+  width: 60px;
+  margin: 20px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  overflow-wrap: break-word;
+  height: 500px;
+  width: 500px;
+  text-align: center;
+  background-color: aqua;
+}
