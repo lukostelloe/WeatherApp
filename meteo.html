@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="meteo.css" />
     <script src="meteo.js" defer></script>
   </head>
-  <body>
+  <body id="body">
+    <h1 id="headline">The weather in any city, instantly</h1>
     <input id="input" type="search" />
     <button id="submit" type="submit">Search</button>
-    <div id="container"></div>
+    <div id="info">
+      <div id="citydiv"></div>
+      <div id="weatherdiv"></div>
+      <div id="tempdiv"></div>
+    </div>
   </body>
 </html>

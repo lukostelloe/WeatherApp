@@ -4,24 +4,63 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background: url("images/intro.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: x-large;
+  color: white;
+}
+
+body.cloudy {
+  background: url(images/clouds.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+body.cleary {
+  background: url(images/clear.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+body.rainy {
+  background: url(images/rain.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#info {
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(208, 238, 255);
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
 }
 
 #input {
-  margin: 20px;
+  margin: 10px;
 }
 
 #submit {
   height: 30px;
   width: 60px;
-  margin: 20px;
+  margin: 10px;
 }
 
-#container {
-  display: flex;
-  flex-direction: row;
-  overflow-wrap: break-word;
-  height: 500px;
-  width: 500px;
-  text-align: center;
-  background-color: aqua;
+#citydiv {
+  padding: 20px;
+}
+
+#weatherdiv {
+  padding: 20px;
+}
+
+#tempdiv {
+  padding: 20px;
+}
+
+#headline {
+  display: block;
 }
