@@ -7,7 +7,7 @@
     <title>meteo/API</title>
     <link rel="stylesheet" href="meteo.css" />
     <script src="meteo.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body id="body">
     <h1 id="headline">The weather in any city, instantly</h1>
@@ -18,8 +18,11 @@
       <div id="weatherdiv"></div>
       <div id="tempdiv"></div>
     </div>
-    <div>
-      <canvas id="myChart"></canvas>
+    <br />
+    <br />
+    <br />
+    <div id="chartdiv">
+      <canvas id="myChart" width="500" height="300"></canvas>
     </div>
   </body>
 </html>

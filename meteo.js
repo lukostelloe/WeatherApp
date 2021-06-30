@@ -4,6 +4,7 @@ const inputbtn = document.getElementById("input");
 const body = document.getElementById("body");
 const headline = document.getElementById("headline");
 const infobox = document.getElementById("info");
+const chartdiv = document.getElementById("chartdiv");
 let containerdiv = document.getElementById("container");
 let citydiv = document.getElementById("citydiv");
 let weatherdiv = document.getElementById("weatherdiv");
@@ -25,24 +26,56 @@ submitbtn.addEventListener("click", function (event) {
   event.preventDefault();
   city = inputbtn.value;
   console.log(city);
+
   //FETCH WEATHER OVER 5 DAYS
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1&units=metric`
   )
     .then((result2) => result2.json())
     .then((data2) => {
       console.log(data2);
+      chartdiv.style.display = "block";
+      let time = [];
+      let temp = [];
+      for (var i = 0; i < data2.list.length; i++) {
+        time.push(data2.list[i].dt_txt);
+        temp.push(data2.list[i].main.temp);
+      }
+
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: time,
+          datasets: [
+            {
+              label: "temp over next 5 days",
+              data: temp,
+              borderColor: "rgb(75, 192, 192)",
+              maintainAspectRatio: true,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
     });
+
   //FETCH WEATHER FOR NOW
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1`
+    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1&units=metric`
   )
     .then((result) => result.json())
     .then((data) => {
       console.log(data);
       citydiv.innerHTML = `${city}`;
       weatherdiv.innerHTML = `${data.weather[0].main}`;
-      tempdiv.innerHTML = Math.round(`${data.main.temp}` - 273.15) + "&#8451";
+      tempdiv.innerHTML = Math.round(`${data.main.temp}`) + "&#8451";
       if (data.weather[0].main == "Clouds") {
         body.classList.add("cloudy");
         body.classList.remove("rainy");
@@ -64,24 +97,3 @@ submitbtn.addEventListener("click", function (event) {
       }
     });
 });
-
-const config = {
-  type: "line",
-  data,
-  options: {},
-};
-
-const labels = ["January", "February", "March", "April", "May", "June"];
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
-
-var myChart = new Chart(document.getElementById("myChart"), config);

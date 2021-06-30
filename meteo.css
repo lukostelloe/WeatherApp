@@ -30,6 +30,7 @@ body.rainy {
 }
 
 #info {
+  margin: 20px;
   display: none;
   flex-direction: row;
   justify-content: space-around;
@@ -63,4 +64,9 @@ body.rainy {
 
 #headline {
   display: block;
+}
+
+#chartdiv {
+  display: none;
+  background-color: white;
 }
