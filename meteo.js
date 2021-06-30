@@ -19,13 +19,16 @@ var rainimage = document.createElement("img");
 rainimage.src = "images/rain.jpg";
 var clearimage = document.createElement("img");
 clearimage.src = "images/clear.jpg";
-
+var myChart;
 //FETCH THE WEATHER API AND DISPLAY INFO ON HTML
 
 submitbtn.addEventListener("click", function (event) {
   event.preventDefault();
   city = inputbtn.value;
   console.log(city);
+  if (myChart) {
+    myChart.destroy();
+  }
 
   //FETCH WEATHER OVER 5 DAYS
   fetch(
@@ -43,7 +46,7 @@ submitbtn.addEventListener("click", function (event) {
       }
 
       var ctx = document.getElementById("myChart").getContext("2d");
-      var myChart = new Chart(ctx, {
+      myChart = new Chart(ctx, {
         type: "line",
         data: {
           labels: time,
