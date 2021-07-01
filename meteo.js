@@ -72,7 +72,7 @@ submitbtn.addEventListener("click", function (event) {
 
   //FETCH WEATHER FOR NOW
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=124e98bd1e47dc311d703689c9585ae1&units=metric`
   )
     .then((result) => result.json())
     .then((data) => {
