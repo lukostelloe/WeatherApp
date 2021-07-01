@@ -56,6 +56,7 @@ submitbtn.addEventListener("click", function (event) {
               data: temp,
               borderColor: "rgb(75, 192, 192)",
               maintainAspectRatio: true,
+              tension: 0.1,
             },
           ],
         },
